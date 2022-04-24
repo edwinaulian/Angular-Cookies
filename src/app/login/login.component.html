@@ -1,0 +1,46 @@
+<div>
+    <form fxFill #Login="ngForm" (ngSubmit)="onsubmit()">
+      <div nz-row>
+        <div nz-col nzMd="12" nzXs="24">
+          <hr />
+          <nz-form-item>
+            <nz-input-group>
+              <div nz-col nzMd="11" nzXs="8">
+                <nz-input-group nzPrefixIcon="user">
+                  <input type="text" nz-input name="Login_name" placeholder="User Name" id="userName" #userName="ngModel"
+                    [(ngModel)]="Obj.username">
+                </nz-input-group>
+                <div *ngIf="Login.submitted && userName.errors" style="color: red">
+                  <div *ngIf="userName.hasError('required')">
+  
+                    Login ID is required
+  
+                  </div>
+                </div>
+              </div>
+            </nz-input-group>
+          </nz-form-item>
+          <nz-form-item>
+            <div nz-col nzMd="11" nzXs="8">
+              <nz-input-group nzPrefixIcon="lock">
+                <input type="password" nz-input name="user_password" placeholder="Password" id="password"
+                  #password="ngModel" [(ngModel)]="Obj.password">
+              </nz-input-group>
+              <div *ngIf="Login.submitted && password.errors" style="color: red">
+                <div *ngIf="password.hasError('required')">
+  
+                  Password is required
+  
+                </div>
+              </div>
+            </div>
+          </nz-form-item>
+          <div class="button">
+            <button nz-button nzType="primary">
+              submit
+            </button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
